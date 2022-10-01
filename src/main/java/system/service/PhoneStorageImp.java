@@ -1,23 +1,23 @@
 package system.service;
 
 import system.dao.PhoneRepositoryImp;
-import system.model.Phone;
+import system.model.phone.PhoneModel;
 
 import java.util.List;
 
 public interface PhoneStorageImp extends PhoneRepositoryImp {
 
     @Override
-    Phone save(Phone phone);
+    PhoneModel save(PhoneModel phoneModel);
 
     @Override
-    Phone update(Long id, Phone phone);
+    PhoneModel update(Long id, PhoneModel phoneModel);
 
     @Override
     Long findById(Long id);
 
     @Override
-    List<Phone> findAll();
+    List<PhoneModel> findAll();
 
     @Override
     boolean removeById(Long id);

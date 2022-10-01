@@ -1,7 +1,7 @@
 package system.service;
 
 import system.dao.PhoneRepository;
-import system.model.Phone;
+import system.model.phone.PhoneModel;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public class PhoneStorage implements PhoneStorageImp{
     }
 
     @Override
-    public Phone save(Phone phone) {
+    public PhoneModel save(PhoneModel phoneModel) {
         return null;
     }
 
     @Override
-    public Phone update(Long id, Phone phone) {
+    public PhoneModel update(Long id, PhoneModel phoneModel) {
         return null;
     }
 
@@ -29,7 +29,7 @@ public class PhoneStorage implements PhoneStorageImp{
     }
 
     @Override
-    public List<Phone> findAll() {
+    public List<PhoneModel> findAll() {
         return null;
     }
 

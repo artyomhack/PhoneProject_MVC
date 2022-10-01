@@ -1,19 +1,18 @@
 package system.dao;
 
-import system.file.FileRepository;
-import system.model.Phone;
+import system.model.phone.PhoneModel;
 
 import java.util.List;
 
 public interface PhoneRepositoryImp<T,ID>  {
 
-    Phone save(Phone phone);
+    PhoneModel save(PhoneModel phoneModel);
 
-    Phone update(Long id, Phone phone);
+    PhoneModel update(Long id, PhoneModel phoneModel);
 
     Long findById(Long id);
 
-    List<Phone> findAll();
+    List<PhoneModel> findAll();
 
     boolean removeById(Long id);
 }
