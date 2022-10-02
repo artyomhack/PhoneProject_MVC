@@ -20,9 +20,8 @@ public abstract class AbstractAsUUID implements FileId<UUID>{
         return valueUUID;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.getValue() == valueUUID;
     }
-
-
 }

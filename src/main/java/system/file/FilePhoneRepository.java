@@ -4,7 +4,9 @@ import system.model.phone.PhoneModel;
 import system.model.phone.PhoneNumberId;
 import system.model.phone.PhoneNumberString;
 
-public class FilePhoneRepository extends AbstractFileRepository<PhoneModel, PhoneNumberId> {
+import java.util.List;
+
+public class FilePhoneRepository extends AbstractFileRepository<PhoneModel, PhoneNumberId>{
 
     protected FilePhoneRepository(PhoneModel entity) {
         super(entity);
@@ -16,6 +18,21 @@ public class FilePhoneRepository extends AbstractFileRepository<PhoneModel, Phon
     }
 
     @Override
+    public PhoneNumberId save(PhoneModel entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    public List<PhoneModel> fetchAll() {
+        return super.fetchAll();
+    }
+
+    @Override
+    public PhoneModel fetchById(PhoneNumberId phoneNumberId) {
+        return super.fetchById(phoneNumberId);
+    }
+
+    @Override
     public PhoneNumberId getNextId() {
         var ids = fetchAll()
                 .stream().map(PhoneModel::getId).sorted().toList();
@@ -23,7 +40,6 @@ public class FilePhoneRepository extends AbstractFileRepository<PhoneModel, Phon
         var lastId = ids.get(ids.size()-1);
 
         return PhoneNumberId.of(PhoneNumberString.
-                        parseToLong(Long.parseLong(String.valueOf(lastId)))
-                );
+                parseToLong(Long.parseLong(String.valueOf(lastId)) + 2907));
     }
 }

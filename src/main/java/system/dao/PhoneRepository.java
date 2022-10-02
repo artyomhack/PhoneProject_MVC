@@ -4,30 +4,15 @@ import system.model.phone.PhoneModel;
 
 import java.util.List;
 
-public class PhoneRepository implements PhoneRepositoryImp{
+public interface PhoneRepository <T,ID>  {
 
-    @Override
-    public PhoneModel save(PhoneModel phoneModel) {
-        return null;
-    }
+    PhoneModel save(PhoneModel phoneModel);
 
-    @Override
-    public PhoneModel update(Long id, PhoneModel phoneModel) {
-        return null;
-    }
+    PhoneModel update(Long id, PhoneModel phoneModel);
 
-    @Override
-    public Long findById(Long id) {
-        return null;
-    }
+    Long findById(Long id);
 
-    @Override
-    public List<PhoneModel> findAll() {
-        return null;
-    }
+    List<PhoneModel> findAll();
 
-    @Override
-    public boolean removeById(Long id) {
-        return false;
-    }
+    boolean removeById(Long id);
 }

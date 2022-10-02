@@ -15,6 +15,6 @@ public class PhoneNumberString {
 
     public static PhoneNumberString parseToLong(long src) {
 
-        return new PhoneNumberString(String.valueOf(src));
+        return regexOf(String.valueOf(src));
     }
 }

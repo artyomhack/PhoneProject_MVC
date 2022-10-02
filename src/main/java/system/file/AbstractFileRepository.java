@@ -4,11 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import system.model.FileId;
 import system.model.FileModel;
+import system.model.phone.PhoneModel;
+import system.model.phone.PhoneNumberId;
+import system.model.phone.PhoneNumberString;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends FileId<?>>
         implements DataFileRepositoryImp<T, ID>{
@@ -29,7 +30,7 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
         }
 
         try {
-            getObjectMapper().writeValue(getFileJson(), entity);
+            getObjectMapper().writeValue(saveFileJson(), entity);
             return id;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -37,7 +38,7 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
     }
 
     public List<T> fetchAll() {
-        var files = getFileJson().listFiles();
+        var files = saveFileJson().listFiles();
         if (Objects.nonNull(files) && files.length > 0) {
             return Arrays.stream(files)
                     .map(this::readFile)
@@ -49,8 +50,17 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
 
     }
 
+    @Override
+    public T fetchById(ID id) {
+        if (!id.isEmpty()) {
+            var file = getFileById(id);
+            return readFile(file);
+
+        } else return null;
+    }
+
     private ObjectWriter getObjectMapper() {
-        return  new ObjectMapper().writerWithDefaultPrettyPrinter();
+        return new ObjectMapper().writerWithDefaultPrettyPrinter();
     }
 
     private T readFile(File file) {
@@ -64,15 +74,21 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
         }
     }
 
-    private File getFileJson() {
-        return new File(filePath);
-    }
-
     @Override
     public ID getLastId() {
         var ids = fetchAll().stream().map(this::mapOfSrc).toList();
 
         return mapOfSrc(ids.get(ids.size() - 1));
+    }
+
+    private File saveFileJson() {
+        return new File(filePath);
+    }
+
+    private File getFileById(ID id) {
+        if (filePath.endsWith(id.toString() + ".json"))
+            return new File(filePath);
+        else return null;
     }
 
     abstract protected ID mapOfSrc(Object src);
