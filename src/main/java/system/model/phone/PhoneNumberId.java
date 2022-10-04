@@ -2,7 +2,7 @@ package system.model.phone;
 
 public class PhoneNumberId extends AbstractNumber<PhoneNumberString>{
 
-    private static final PhoneNumberId numberOfPhone = new PhoneNumberId(numberEmpty);
+    public static PhoneNumberId numberOfPhone = new PhoneNumberId(numberEmpty);
 
     public PhoneNumberId(Object src) {
         super(src);

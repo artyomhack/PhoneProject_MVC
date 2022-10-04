@@ -19,7 +19,9 @@ public class UserFileId extends AbstractAsUUID implements FileId<UUID> {
         return super.isEmpty();
     }
 
-    public UUID of(Object src) {
-        return new UUID(123456789, Long.parseLong(String.valueOf(src)));
+    public static UserFileId of(Object src) {
+        return new UserFileId(
+                new UUID(123456789, Long.parseLong(String.valueOf(src)))
+        );
     }
 }

@@ -1,35 +1,39 @@
-package system.file;
+package system.dao.phone;
 
+import system.file.AbstractFileRepository;
+import system.file.DataFileRepositoryImp;
 import system.model.phone.PhoneModel;
 import system.model.phone.PhoneNumberId;
 import system.model.phone.PhoneNumberString;
 
 import java.util.List;
 
-public class FilePhoneRepository extends AbstractFileRepository<PhoneModel, PhoneNumberId>{
+public class FilePhoneRepository implements DataFileRepositoryImp<PhoneModel, PhoneNumberId> {
 
-    protected FilePhoneRepository(PhoneModel entity) {
-        super(entity);
-    }
+    private final AbstractFileRepository<PhoneModel, PhoneNumberId> repository;
 
-    @Override
-    protected PhoneNumberId mapOfSrc(Object src) {
-        return new PhoneNumberId(src);
+    public FilePhoneRepository(AbstractFileRepository<PhoneModel, PhoneNumberId> repository) {
+        this.repository = repository;
     }
 
     @Override
     public PhoneNumberId save(PhoneModel entity) {
-        return super.save(entity);
+        return repository.save(entity);
     }
 
     @Override
     public List<PhoneModel> fetchAll() {
-        return super.fetchAll();
+        return repository.fetchAll();
     }
 
     @Override
     public PhoneModel fetchById(PhoneNumberId phoneNumberId) {
-        return super.fetchById(phoneNumberId);
+        return repository.fetchById(phoneNumberId);
+    }
+
+    @Override
+    public PhoneNumberId getLastId() {
+        return repository.getLastId();
     }
 
     @Override

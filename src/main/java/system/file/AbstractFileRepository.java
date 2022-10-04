@@ -4,15 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import system.model.FileId;
 import system.model.FileModel;
-import system.model.phone.PhoneModel;
-import system.model.phone.PhoneNumberId;
-import system.model.phone.PhoneNumberString;
 
 import java.io.*;
 import java.util.*;
 
 public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends FileId<?>>
-        implements DataFileRepositoryImp<T, ID>{
+        implements DataFileRepositoryImp<T, ID> {
 
     private final static String path = ".json";
     private final String filePath;
