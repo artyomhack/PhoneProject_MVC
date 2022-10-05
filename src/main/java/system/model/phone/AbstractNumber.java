@@ -1,6 +1,6 @@
 package system.model.phone;
 
-import system.model.FileId;
+import system.file.FileId;
 
 public abstract class AbstractNumber<T extends PhoneNumberString> implements FileId<T>{
 

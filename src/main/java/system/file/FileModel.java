@@ -1,6 +1,4 @@
-package system.model;
-
-import com.sun.xml.bind.v2.model.core.ID;
+package system.file;
 
 public interface FileModel<ID extends FileId<?>>{
     ID getId();

@@ -1,6 +1,5 @@
-package system.model;
+package system.file;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 public abstract class AbstractAsUUID implements FileId<UUID>{

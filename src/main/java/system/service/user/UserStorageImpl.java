@@ -1,5 +1,6 @@
 package system.service.user;
 
+import system.data.user.FileUserRepository;
 import system.model.phone.PhoneNumberId;
 import system.model.user.UserFileId;
 import system.model.user.UserModel;
@@ -8,8 +9,14 @@ import java.util.List;
 
 public class UserStorageImpl implements UserStorage{
 
+    private final FileUserRepository userRepository;
+
+    public UserStorageImpl(FileUserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @Override
-    public UserFileId save(String firstName, String lastName, String phonetic) {
+    public UserFileId add(String firstName, String lastName, String phonetic) {
         return null;
     }
 

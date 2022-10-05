@@ -1,6 +1,6 @@
 package system.model.phone;
 
-import system.model.FileModel;
+import system.file.FileModel;
 import system.model.user.UserModel;
 import system.service.phone.PhoneDetails;
 

@@ -1,5 +1,6 @@
-package system.dao.phone;
+package system.data.phone;
 
+import org.springframework.stereotype.Repository;
 import system.file.AbstractFileRepository;
 import system.file.DataFileRepositoryImp;
 import system.model.phone.PhoneModel;

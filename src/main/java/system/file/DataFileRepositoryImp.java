@@ -1,5 +1,6 @@
 package system.file;
 
+import org.springframework.stereotype.Repository;
 import system.model.phone.PhoneModel;
 import system.model.phone.PhoneNumberId;
 import system.model.phone.PhoneNumberString;

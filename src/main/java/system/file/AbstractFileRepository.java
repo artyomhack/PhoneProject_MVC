@@ -2,12 +2,12 @@ package system.file;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import system.model.FileId;
-import system.model.FileModel;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.*;
 
+@Repository
 public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends FileId<?>>
         implements DataFileRepositoryImp<T, ID> {
 
@@ -56,6 +56,13 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
         } else return null;
     }
 
+    @Override
+    public ID getLastId() {
+        var ids = fetchAll().stream().map(this::mapOfSrc).toList();
+
+        return mapOfSrc(ids.get(ids.size() - 1));
+    }
+
     private ObjectWriter getObjectMapper() {
         return new ObjectMapper().writerWithDefaultPrettyPrinter();
     }
@@ -69,13 +76,6 @@ public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public ID getLastId() {
-        var ids = fetchAll().stream().map(this::mapOfSrc).toList();
-
-        return mapOfSrc(ids.get(ids.size() - 1));
     }
 
     private File saveFileJson() {

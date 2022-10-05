@@ -1,10 +1,8 @@
-package system.dao.user;
+package system.data.user;
 
+import org.springframework.stereotype.Repository;
 import system.file.AbstractFileRepository;
 import system.file.DataFileRepositoryImp;
-import system.model.phone.PhoneModel;
-import system.model.phone.PhoneNumberId;
-import system.model.phone.PhoneNumberString;
 import system.model.user.UserFileId;
 import system.model.user.UserModel;
 

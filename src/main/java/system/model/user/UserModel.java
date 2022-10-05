@@ -1,6 +1,6 @@
 package system.model.user;
 
-import system.model.FileModel;
+import system.file.FileModel;
 
 public class UserModel implements FileModel<UserFileId> {
 

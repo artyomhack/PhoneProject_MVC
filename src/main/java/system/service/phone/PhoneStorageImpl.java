@@ -1,6 +1,6 @@
 package system.service.phone;
 
-import system.dao.phone.FilePhoneRepository;
+import system.data.phone.FilePhoneRepository;
 import system.model.phone.PhoneModel;
 import system.model.phone.PhoneNumberId;
 import system.model.user.UserFileId;

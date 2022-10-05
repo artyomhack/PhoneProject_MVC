@@ -1,9 +1,8 @@
 package system.model.user;
 
-import system.model.AbstractAsUUID;
-import system.model.FileId;
+import system.file.AbstractAsUUID;
+import system.file.FileId;
 
-import java.io.File;
 import java.util.UUID;
 
 public class UserFileId extends AbstractAsUUID implements FileId<UUID> {
