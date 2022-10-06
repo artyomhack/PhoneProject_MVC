@@ -4,6 +4,8 @@ import system.file.FileModel;
 import system.model.user.UserModel;
 import system.service.phone.PhoneDetails;
 
+import java.util.Objects;
+
 public class PhoneModel implements FileModel<PhoneNumberId> {
 
     private final PhoneNumberId number;
@@ -26,17 +28,6 @@ public class PhoneModel implements FileModel<PhoneNumberId> {
         return number;
     }
 
-    public static PhoneModel modelOf(PhoneDetails details) {
-        return new PhoneModel(
-                details.getId(),
-                details.getNumber()
-        );
-    }
-
-    public PhoneNumberId getNumber() {
-        return number;
-    }
-
     public String getNumberOfPhone() {
         return numberOfPhone;
     }
@@ -44,4 +35,13 @@ public class PhoneModel implements FileModel<PhoneNumberId> {
     public UserModel getUser() {
         return user;
     }
+
+    public static PhoneModel modelOf(PhoneDetails details) {
+        return new PhoneModel(
+                details.getId(),
+                details.getNumber()
+        );
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package system.service.user;
 
+import org.springframework.stereotype.Repository;
 import system.model.phone.PhoneNumberId;
 import system.model.user.UserFileId;
 import system.model.user.UserModel;

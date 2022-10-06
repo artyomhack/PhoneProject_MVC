@@ -12,6 +12,10 @@ import system.model.phone.PhoneModel;
 import system.model.phone.PhoneNumberId;
 import system.model.user.UserFileId;
 import system.model.user.UserModel;
+import system.service.phone.PhoneStorage;
+import system.service.phone.PhoneStorageImpl;
+import system.service.user.UserStorage;
+import system.service.user.UserStorageImpl;
 
 @Configuration
 @ComponentScan("system")
@@ -19,16 +23,34 @@ import system.model.user.UserModel;
 public class MyConfig {
 
     @Bean
-    DataFileRepositoryImp<PhoneModel, PhoneNumberId> getDataFilePhoneRepository
+    FilePhoneRepository getFilePhoneRepository
             (AbstractFileRepository<PhoneModel, PhoneNumberId> repository) {
         return new FilePhoneRepository(repository);
     }
 
     @Bean
-    DataFileRepositoryImp<UserModel, UserFileId> getDataFileUserRepository
+    FileUserRepository getFileUserRepository
             (AbstractFileRepository<UserModel, UserFileId> repository) {
         return new FileUserRepository(repository);
     }
 
+    @Bean
+    UserStorage getUserStorage(FileUserRepository repository) {
+        return new UserStorageImpl(repository);
+    }
 
+    @Bean
+    PhoneStorage getPhoneStorage(FilePhoneRepository repository) {
+        return new PhoneStorageImpl(repository);
+    }
+
+    @Bean
+    PhoneStorageImpl getPhoneStorageImpl(FilePhoneRepository repository) {
+        return new PhoneStorageImpl(repository);
+    }
+
+    @Bean
+    UserStorageImpl getPhoneStorageImpl(FileUserRepository repository) {
+        return new UserStorageImpl(repository);
+    }
 }
