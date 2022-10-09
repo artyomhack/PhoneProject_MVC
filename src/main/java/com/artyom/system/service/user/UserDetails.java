@@ -1,7 +1,9 @@
 package com.artyom.system.service.user;
 
 import com.artyom.system.model.user.UserFileId;
+import lombok.Data;
 
+@Data
 public class UserDetails {
     private final UserFileId id;
     private String firstName;

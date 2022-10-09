@@ -3,6 +3,7 @@ package com.artyom.system.service.phone;
 import com.artyom.system.model.phone.PhoneModel;
 import com.artyom.system.model.phone.PhoneNumberId;
 import com.artyom.system.model.user.UserFileId;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

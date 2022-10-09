@@ -2,7 +2,9 @@ package com.artyom.system.service.phone;
 
 import com.artyom.system.model.phone.PhoneNumberId;
 import com.artyom.system.service.user.UserDetails;
+import lombok.Data;
 
+@Data
 public class PhoneDetails {
     private final PhoneNumberId id;
     private final String number;

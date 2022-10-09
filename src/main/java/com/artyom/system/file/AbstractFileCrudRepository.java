@@ -2,19 +2,18 @@ package com.artyom.system.file;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.*;
 
-@Repository
-public abstract class AbstractFileRepository<T extends FileModel<ID>, ID extends FileId<?>>
-        implements DataFileRepositoryImp<T, ID> {
+public abstract class AbstractFileCrudRepository<T extends FileModel<ID>, ID extends FileId<?>>
+        implements FileCrudRepository<T, ID> {
 
     private final static String path = ".json";
     private final String filePath;
 
-    protected AbstractFileRepository(Class<T> entity) {
+    protected AbstractFileCrudRepository(Class<T> entity) {
         this.filePath = "C:\\__work\\project\\CrossZeroMVC\\jsonFiles" + File.separator
                 + entity.getSimpleName() + "_id_" + path;
     }

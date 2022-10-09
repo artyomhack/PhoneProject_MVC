@@ -3,7 +3,15 @@ package com.artyom.system.model.phone;
 import com.artyom.system.file.FileModel;
 import com.artyom.system.model.user.UserModel;
 import com.artyom.system.service.phone.PhoneDetails;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Data
+@AllArgsConstructor
+@Setter
+@Getter
 public class PhoneModel implements FileModel<PhoneNumberId> {
 
     private final PhoneNumberId number;
@@ -15,25 +23,6 @@ public class PhoneModel implements FileModel<PhoneNumberId> {
         this.numberOfPhone = numberOfPhone;
     }
 
-    public PhoneModel(PhoneNumberId number, String numberOfPhone, UserModel user) {
-        this.number = number;
-        this.numberOfPhone = numberOfPhone;
-        this.user = user;
-    }
-
-    @Override
-    public PhoneNumberId getId() {
-        return number;
-    }
-
-    public String getNumberOfPhone() {
-        return numberOfPhone;
-    }
-
-    public UserModel getUser() {
-        return user;
-    }
-
     public static PhoneModel modelOf(PhoneDetails details) {
         return new PhoneModel(
                 details.getId(),
@@ -41,5 +30,8 @@ public class PhoneModel implements FileModel<PhoneNumberId> {
         );
     }
 
-
+    @Override
+    public PhoneNumberId getId() {
+        return number;
+    }
 }

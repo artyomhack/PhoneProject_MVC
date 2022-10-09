@@ -2,6 +2,7 @@ package com.artyom.system.model.user;
 
 import com.artyom.system.file.AbstractAsUUID;
 import com.artyom.system.file.FileId;
+import lombok.Data;
 
 import java.util.UUID;
 
