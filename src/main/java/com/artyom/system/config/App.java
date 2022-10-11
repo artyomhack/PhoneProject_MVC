@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.artyom.system.*")
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);

@@ -3,10 +3,12 @@ package com.artyom.system.file;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.io.*;
 import java.util.*;
 
+@Repository
 public abstract class AbstractFileCrudRepository<T extends FileModel<ID>, ID extends FileId<?>>
         implements FileCrudRepository<T, ID> {
 

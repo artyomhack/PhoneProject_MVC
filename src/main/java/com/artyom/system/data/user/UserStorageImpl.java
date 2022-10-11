@@ -1,22 +1,19 @@
 package com.artyom.system.data.user;
 
-import com.artyom.system.file.AbstractFileCrudRepository;
 import com.artyom.system.model.phone.PhoneNumberId;
 import com.artyom.system.model.user.UserFileId;
 import com.artyom.system.model.user.UserModel;
 import com.artyom.system.service.user.UserStorage;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.UUID;
 
-public class FileUserCrudRepository extends AbstractFileCrudRepository<UserModel, UserFileId>
-implements UserStorage {
+public class UserStorageImpl implements UserStorage {
 
     private final UserCrudRepository crudRepository;
 
-    public FileUserCrudRepository(UserCrudRepository crudRepository, Class<UserModel> entity) {
-        super(entity);
+    public UserStorageImpl(@Autowired UserCrudRepository crudRepository) {
         this.crudRepository = crudRepository;
     }
 
@@ -54,24 +51,4 @@ implements UserStorage {
     public boolean deletePhoneByUserId(UserFileId userId) {
         return false;
     }
-
-    @Override
-    protected UserFileId mapOfSrc(Object src) {
-        return UserFileId.of(src);
-    }
-
-    @Override
-    public UserFileId getNextId() {
-
-        var usr = crudRepository.fetchAll().stream()
-                .map(UserModel::getId).sorted().toList();
-
-        var last = usr.get(usr.size() - 1);
-
-        return UserFileId.of(new UUID(123456789,
-                last.getValueUUID().getLeastSignificantBits()
-                        - UUID.randomUUID().getMostSignificantBits()));
-    }
-
-
 }
