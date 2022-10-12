@@ -58,6 +58,13 @@ public abstract class AbstractFileCrudRepository<T extends FileModel<ID>, ID ext
     }
 
     @Override
+    public boolean removeById(ID id) {
+        var file = getFileById(id);
+
+        return file.delete();
+    }
+
+    @Override
     public ID getLastId() {
         var ids = fetchAll().stream().map(this::mapOfSrc).toList();
 

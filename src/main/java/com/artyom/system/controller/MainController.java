@@ -1,11 +1,13 @@
 package com.artyom.system.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
 
-
+    @GetMapping("/")
+    public String getIndex() {
+        return "index";
+    }
 }

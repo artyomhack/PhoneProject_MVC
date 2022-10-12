@@ -14,6 +14,8 @@ public interface FileCrudRepository<T, ID>{
 
     T fetchById(ID id);
 
+    boolean removeById(ID id);
+
     ID getLastId();
 
     ID getNextId();

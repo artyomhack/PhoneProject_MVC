@@ -29,6 +29,11 @@ public class PhoneCrudRepositoryImpl extends AbstractFileCrudRepository<PhoneMod
     }
 
     @Override
+    public boolean removeById(PhoneNumberId phoneNumberId) {
+        return false;
+    }
+
+    @Override
     public PhoneNumberId getLastId() {
         return super.getLastId();
     }

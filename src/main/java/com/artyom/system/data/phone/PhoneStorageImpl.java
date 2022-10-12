@@ -6,6 +6,7 @@ import com.artyom.system.model.user.UserFileId;
 import com.artyom.system.service.phone.PhoneStorage;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PhoneStorageImpl implements PhoneStorage {
 
@@ -24,17 +25,32 @@ public class PhoneStorageImpl implements PhoneStorage {
 
     @Override
     public PhoneNumberId update(PhoneNumberId phoneId, String number) {
-        return null;
+        var phone = phoneRepository.fetchById(phoneId);
+
+        if (!Objects.equals(phone.getNumberOfPhone(), number)) {
+            phone = new PhoneModel(
+                    phoneId,
+                    number,
+                    phoneRepository.fetchById(phoneId).getUser()
+            );
+        }
+        return phoneRepository.save(phone);
     }
 
     @Override
     public List<PhoneModel> findAll() {
-        return null;
+        return phoneRepository.fetchAll()
+                .stream()
+                .map(PhoneModel::getId)
+                .filter(Objects::nonNull)
+                .sorted()
+                .map(phoneRepository::fetchById)
+                .toList();
     }
 
     @Override
     public PhoneModel findById(PhoneNumberId phoneId) {
-        return null;
+        return phoneRepository.fetchById(phoneId);
     }
 
     @Override
@@ -44,7 +60,7 @@ public class PhoneStorageImpl implements PhoneStorage {
 
     @Override
     public boolean deleteById(PhoneNumberId numberId) {
-        return false;
+        return phoneRepository.removeById(numberId);
     }
 
     @Override
