@@ -16,13 +16,15 @@
 }
 
 a {
-    font-size: 20px;
+    font-size: 16px;
     padding: 20px;
-    color: burlywood;
+    color: #EAE6CA;
     text-decoration: none;
 }
 
 li {
+    font-family: "Open Sans Medium", serif;
+    padding: 20px;
     display: inline;
 }
 
@@ -33,6 +35,6 @@ ul {
 }
 
 a:hover {
-    color: aliceblue;
+    color: darkgray;
     text-decoration: none;
 }
