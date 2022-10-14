@@ -1,6 +1,38 @@
-div.main-text {
-    color:dimgrey;
-    margin-left: 0;
-    margin-right: 0;
+#header {
+    background: #6C6874;
     text-align: center;
+
+}
+
+.logo-text {
+    padding-top: 10px;
+    font-family: "Roboto Light", serif;
+}
+
+.logo-text {
+    color: aliceblue;
+    font-family: "Roboto Thin", serif;
+
+}
+
+a {
+    font-size: 20px;
+    padding: 20px;
+    color: burlywood;
+    text-decoration: none;
+}
+
+li {
+    display: inline;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+a:hover {
+    color: aliceblue;
+    text-decoration: none;
 }
