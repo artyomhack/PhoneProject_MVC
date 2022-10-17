@@ -5,13 +5,13 @@ import com.artyom.system.data.phone.PhoneCrudRepositoryImpl;
 import com.artyom.system.data.user.UserStorageImpl;
 import com.artyom.system.data.user.UserCrudRepository;
 import com.artyom.system.data.user.UserCrudRepositoryImpl;
-import com.artyom.system.service.user.UserInteractor;
+import com.artyom.system.service.user.UserInteractorImpl;
 import com.artyom.system.service.user.UserStorage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.artyom.system.data.phone.PhoneStorageImpl;
 import com.artyom.system.service.phone.PhoneStorage;
-import com.artyom.system.service.phone.PhoneInteractor;
+import com.artyom.system.service.phone.PhoneInteractorImpl;
 
 @Configuration
 public class MyConfig {
@@ -27,8 +27,8 @@ public class MyConfig {
     }
 
     @Bean
-    PhoneInteractor phoneInteractor(PhoneStorage storage) {
-        return new PhoneInteractor(storage);
+    PhoneInteractorImpl phoneInteractor(PhoneStorage storage) {
+        return new PhoneInteractorImpl(storage);
     }
 
     @Bean
@@ -42,7 +42,7 @@ public class MyConfig {
     }
 
     @Bean
-    UserInteractor userStorageImpl(UserStorage storage) {
-        return new UserInteractor(storage);
+    UserInteractorImpl userStorageImpl(UserStorage storage) {
+        return new UserInteractorImpl(storage);
     }
 }

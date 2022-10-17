@@ -17,24 +17,8 @@ public class PhoneStorageImpl implements PhoneStorage {
     }
 
     @Override
-    public PhoneNumberId add(String number) {
-        return phoneRepository.save(
-                new PhoneModel(PhoneNumberId.of(number), number)
-        );
-    }
-
-    @Override
-    public PhoneNumberId update(PhoneNumberId phoneId, String number) {
-        var phone = phoneRepository.fetchById(phoneId);
-
-        if (!Objects.equals(phone.getNumberOfPhone(), number)) {
-            phone = new PhoneModel(
-                    phoneId,
-                    number,
-                    phoneRepository.fetchById(phoneId).getUser()
-            );
-        }
-        return phoneRepository.save(phone);
+    public PhoneNumberId save(PhoneModel phoneModel) {
+        return phoneRepository.save(phoneModel);
     }
 
     @Override
@@ -61,15 +45,5 @@ public class PhoneStorageImpl implements PhoneStorage {
     @Override
     public boolean deleteById(PhoneNumberId numberId) {
         return phoneRepository.removeById(numberId);
-    }
-
-    @Override
-    public boolean deleteUserIdByPhoneId(PhoneNumberId phoneId) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteByUserId(UserFileId userId) {
-        return false;
     }
 }

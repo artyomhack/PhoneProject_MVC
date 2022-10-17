@@ -36,4 +36,11 @@ public class UserDetails {
     public String getPhonetic() {
         return phonetic;
     }
+
+    public static UserDetails of(String firstName, String lastName, String phonetic) {
+        return new UserDetails(
+                UserFileId.of(UserFileId.valueUUID),
+                firstName, lastName, phonetic
+        );
+    }
 }

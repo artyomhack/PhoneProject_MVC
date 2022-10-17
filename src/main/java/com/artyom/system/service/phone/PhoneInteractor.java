@@ -1,17 +1,24 @@
 package com.artyom.system.service.phone;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.artyom.system.model.phone.PhoneModel;
+import com.artyom.system.model.phone.PhoneNumberId;
+import com.artyom.system.model.user.UserModel;
+import com.artyom.system.service.phone.PhoneDetails;
 
-@Service
-public class PhoneInteractor {
+import java.util.List;
 
-    @Autowired
-    private final PhoneStorage storage;
+public interface PhoneInteractor {
 
-    public PhoneInteractor(PhoneStorage storage) {
-        this.storage = storage;
-    }
+    PhoneNumberId add(PhoneDetails phone);
+
+    PhoneDetails update(PhoneNumberId id);
+
+    PhoneDetails fetchById(PhoneNumberId id);
+
+    List<PhoneDetails> fetchAll();
+
+    boolean removeById(PhoneNumberId id);
+
 
 
 }

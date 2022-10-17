@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface PhoneStorage {
-    PhoneNumberId add(String number);
-
-    PhoneNumberId update(PhoneNumberId phoneId, String number);
+    PhoneNumberId save(PhoneModel model);
 
     List<PhoneModel> findAll();
 
@@ -19,8 +17,4 @@ public interface PhoneStorage {
     PhoneModel findByUser(UserFileId userId);
 
     boolean deleteById(PhoneNumberId numberId);
-
-    boolean deleteUserIdByPhoneId(PhoneNumberId phoneId);
-
-    boolean deleteByUserId(UserFileId userId);
 }
