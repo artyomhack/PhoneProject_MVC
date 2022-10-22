@@ -1,0 +1,40 @@
+#header {
+    background: #6C6874;
+    text-align: center;
+
+}
+
+.logo-text {
+    padding-top: 10px;
+    font-family: "Roboto Light", serif;
+}
+
+.logo-text {
+    color: aliceblue;
+    font-family: "Roboto Thin", serif;
+
+}
+
+a {
+    font-size: 16px;
+    padding: 20px;
+    color: #EAE6CA;
+    text-decoration: none;
+}
+
+li {
+    font-family: "Open Sans Medium", serif;
+    padding: 20px;
+    display: inline;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+}
+
+a:hover {
+    color: darkgray;
+    text-decoration: none;
+}

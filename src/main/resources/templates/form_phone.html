@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create phone</title>
+</head>
+<body>
+<header>
+    <div class="container"></div>
+</header>
+
+<div class="main">
+    <form method="post">
+        <div class="container">
+            <h3>ID:<input type="hidden" name="id" th:value="${id}"/></h3>
+            <p>Number of phone:
+                <input type="tel" name="label_phone" placeholder="+7 (___) __-__" th:value="${phone}"/>
+            </p>
+
+        </div>
+    </form>
+</div>
+
+<footer>
+    <div class="container"></div>
+</footer>
+</body>
+</html>
